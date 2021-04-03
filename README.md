@@ -49,10 +49,10 @@ Syntax
 }
 ```
 Workflow = init –> plan –> apply –> destroy (IPAD or IAD)
-1. `terraform init` - This command downloads and installs providers used in the configuration (Ex. AWS).
-2. `terraform plan` - This creates execution plan. Checks for syntax errors, API authentication, state verification, etc. Shows what needs to be fixed, what was created, and what needs to be created.
-3. `terraform apply` -  This executes the plan. Type 'yes' to approve and create resource/infrastructure. Also applies any changes made to the existing resources.
-4. `terraform destroy` - This destroys any resources made. Also confirm with 'yes'.
+1. `terraform init` - Initializes the working dir. This command downloads and installs providers used in the configuration (Ex. AWS).
+2. `terraform plan` - This creates execution plan to reach desired state of infras. Checks for syntax errors, API authentication, state verification, etc. Shows what needs to be fixed, what was created, and what needs to be created.
+3. `terraform apply` -  This executes the plan and makes changes as defined in plan. Type 'yes' to approve and create resource/infrastructure. Also applies any changes made to the existing resources.
+4. `terraform destroy` - This destroys any old infras. resources which are marked tainted after apply phase. Also confirm with 'yes'.
 
 ---
 
