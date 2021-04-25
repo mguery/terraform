@@ -38,6 +38,11 @@ resource "aws_vpc" "myvpc" {
 ```
 Then `terraform apply` and enter a value - the name of the VPC you want to create. Then 'yes' to create.
 
+`terraform apply -auto-approve` - auto approves plan, no need to type yes
+
+
+`terraform plan -out myplan.tfplan` - this command creates a plan for a reviewer to go over the plan. if it passes the plan, you can approve the process to be deployed [infor about Plan](https://www.terraform.io/docs/cli/commands/plan.html)
+
 ---
 Notes from [Getting Started with Terraform](https://cloudskills.io/blog/terraform-aws-1), [Intro to Terraform](https://hackernoon.com/hashicorps-terraform-a-introduction-7f2034ae), [Terraform references for AWS](https://registry.terraform.io/providers/hashicorp/aws/latest)
 
@@ -146,3 +151,32 @@ module "db" {
   source = ./db
 }
 ```
+
+## Workspaces
+options - new, list, show, select, delete
+
+`terraform workspace list` - lists workspaces in env, * = your current workspace, * default
+
+`terraform workspace new dev` `terraform workspace new prod` - creates a workspace
+
+`terraform workspace select dev` - goes to dev env
+
+in main.tf 
+```
+variable "aws_region" {
+  type    = map
+  default = {
+    dev = "us-east-1"
+    prod = "us-east-2"
+  }
+}
+
+provider "aws" {
+  region = var.aws_region[terraform.workspace]
+}
+```
+Add this -  `_${terraform.workspace}` or `-${terraform.workspace}` at the end of names in each resource (end of name or function_name)
+
+Example - `function_name = "python_lambda_test_${terraform.workspace}"`
+
+then `terraform plan` to confirm changes - "function_name = python_lambda_test_dev"
