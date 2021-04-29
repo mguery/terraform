@@ -1,5 +1,7 @@
 # terraform
-Terraform notes and steps completed. Plus, mistakes I made along the way. 
+Terraform notes and steps completed. Plus, errors that popped up. 
+
+[Terraform command line cheat sheet](https://acloudguru.com/blog/engineering/the-ultimate-terraform-cheatsheet)
 
 - [x] Create AWS account - user = 'terraform'
 - [x] Powershell - right click and run as Admin
