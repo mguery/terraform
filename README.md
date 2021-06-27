@@ -144,15 +144,44 @@ resource "aws_security_group" "webtraffic" {
 
 ## Modules
 [Terraform Registry for AWS](https://registry.terraform.io/providers/hashicorp/aws/latest)
-Module is a folder with code inside. (Think: SASS/SCSS modules structure) 
-Create modules folder with main.tf inside. Create another folder for each resource and a file. (modules > ec2 > ec2.tf) You would add any code related to the resource/label here(?)
+Module is a folder with other Tf code inside. 
+Create modules folder with main.tf inside. Create another folder for each resource and a file. (modules > ec2 > ec2.tf) You would add any code related to the resource.
 
-In modules > main.tf, create module block for each resource/label 
+**Example**
+In modules > > db > db.tf
 ```
-module "db" {
-  source = ./db
+variable "dbname" {
+  type = string
+}
+
+resource "aws_instance" "myec2db" {
+  ami = "ami-0d296d66f22f256c2"
+  instance_type = "t2.micro"
+  
+  tags = {
+    Name = var.dbname
+  }
 }
 ```
+
+In modules > db > main.tf, create module block for each resource/label 
+```
+provider {...}
+resource "aws_instance" "myec2" {
+  ami = "ami-##..."
+  instance_type = "t2.micro"
+  
+  tags = {
+    Name = "Web Server"
+  }
+}
+
+module "dbserver" {
+  source = ./db
+  dbname = "mydbserver"
+}
+```
+
 
 ## Workspaces
 options - new, list, show, select, delete
