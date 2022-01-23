@@ -4,6 +4,7 @@ Built a dev environment with AWS and Terraform - [course by Derek Morgan](https:
 
 launched aws resources with terraform, ssh into an ubuntu server
 
+Notes
 - **state file** stores info about your resources 
 - **datasource** - a query of the AWS API to receive information needed to deploy a resource [tf docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami)
 - launch ec2 instance and grab AMI ID. go to AMI, public images in dropdown, and paste ami. grab owner #. 
