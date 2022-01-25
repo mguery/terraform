@@ -20,3 +20,4 @@ Notes
 - **terraform console** \ variable precedence - terraform.tfvars takes precedence
 - use **conditional expressions** to choose the interpreter we need dynamically based on the defintion of the host_os variable \ `interpreter = var.host_os == "windows" ? ["Powershell", "-Command"] : ["bash", "-c"]`
 - **outputs** outputs.tf `output "dev_ip" { value = aws_instance.dev_node.public_ip}` \ `terraform output`
+- try new env - `docker run hello-world` `docker images hello-world`
