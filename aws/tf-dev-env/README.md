@@ -2,7 +2,11 @@
 
 Built a dev environment with AWS and Terraform - [course by Derek Morgan](https://courses.morethancertified.com/courses/enrolled/1641072)
 
-launched aws resources with terraform, ssh into an ubuntu server
+launched aws resources with terraform, ssh into an ubuntu server, launched Docker container
+
+![Screenshot (7)](https://user-images.githubusercontent.com/10605985/150907840-265b4362-febc-4fe7-8c73-a1e22acf5081.png)
+![Screenshot (6)](https://user-images.githubusercontent.com/10605985/150907841-183aaa8a-0fb2-460c-b821-a413dd593cf6.png)
+
 
 Notes
 - **state file** stores info about your resources 
