@@ -57,7 +57,7 @@ resource "aws_security_group" "mg_sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["89.187.170.158/32"] # ["your.ip.here.1/32"]
+    cidr_blocks = ["#.#.#.#/32"] # ["your.ip.here.1/32"]
   }
 
   egress {
